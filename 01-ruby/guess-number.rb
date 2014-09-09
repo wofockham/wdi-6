@@ -4,8 +4,12 @@ upper_bound = gets.to_i
 # Generate a secret number
 secret = Random.rand(upper_bound + 1) # Up to AND INCLUDING the upper bound.
 
-print "Enter your guess: "
-guess = gets.to_i
+def read_guess
+  print "Pretty please enter your guess: "
+  gets.to_i
+end
+
+guess = read_guess
 
 while guess != secret
   puts "That is incorrect. Bonehead."
@@ -16,8 +20,7 @@ while guess != secret
     puts "Guess higher!"
   end
 
-  print "Enter your guess: "
-  guess = gets.to_i
+  guess = read_guess
 end
 
 puts "You guessed it! Good job!"
