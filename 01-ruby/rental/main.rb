@@ -14,10 +14,12 @@ building = Building.new('123 Fake St', 'Neo-industrial', true, false, 1000)
 $buildings = []
 $tenants = []
 
-# Seed data
+# Seed data -- populate a building with an apartment and a tenant.
+apt.tenants << chris
+building.apartments[ apt.name ] = apt
 $buildings.push building
-$buildings.first.apartments[apt.name] = apt
-$buildings.first.apartments[apt.name].tenants << chris
+
+binding.pry
 
 def menu
   puts "1. List all apartments"
@@ -44,6 +46,7 @@ until menu_option == 'q'
     menu_option = read_selection # Thanks Nick!
   end
 end
+
 
 
 
