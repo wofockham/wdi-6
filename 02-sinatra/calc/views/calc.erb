@@ -1,10 +1,19 @@
-<p>
-  x: <%= params[:x] %>
-</p>
-<p>
-  y: <%= params[:y] %>
-</p>
+<form action="/calc">
+  <input name='first' placeholder="x">
+  <input name='operator' placeholder="operator">
+  <input name='second' placeholder="y">
+  <button>Calculate!</button>
+</form>
 
-<p>
-  Result: <b><%= @result %></b>
-</p>
+<% if @result %>
+  <p>
+    x: <%= params[:first] %>
+  </p>
+  <p>
+    y: <%= params[:second] %>
+  </p>
+
+  <p>
+    Result: <b><%= @result %></b>
+  </p>
+<% end %>
