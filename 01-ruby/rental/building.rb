@@ -10,6 +10,15 @@ class Building
     @apartments = {}
   end
 
+  def marx_bros
+    puts "Zippeedeedoodah"
+    ["Groucho", "Harpo", "Chico", "Zeppo"]
+  end
+
+  def demolish
+    puts "KABOOM"
+  end
+
   def to_s
     "This #{ @style } style building at #{ @address } has #{ @apartments.length } apartments."
   end
