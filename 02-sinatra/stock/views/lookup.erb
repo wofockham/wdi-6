@@ -1,0 +1,10 @@
+<form action="/">
+  <input name="symbol" placeholder="Stock symbol">
+  <button>Lookup</button>
+</form>
+
+<% if @price && @price > 0 %>
+  <p>
+    Last trade for <%= params[:symbol] %> was $<%= @price %>.
+  </p>
+<% end %>
