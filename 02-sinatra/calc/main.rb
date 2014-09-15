@@ -2,6 +2,10 @@ require 'pry'
 require 'sinatra'
 require 'sinatra/reloader'
 
+get '/about' do
+  erb :about
+end
+
 get '/calc' do
   @first = params[:first].to_f
   @second = params[:second].to_f
