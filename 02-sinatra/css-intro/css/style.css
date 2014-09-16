@@ -1,0 +1,35 @@
+
+body {
+  color: white;
+  background-color: orange;
+}
+
+.container {
+  max-width: 960px;
+  margin: auto; /* center */
+}
+
+#logo {
+  font-size: 500%;
+  text-align: center;
+  text-shadow: 0 0 5px black;
+}
+
+p {
+  font-family: Arial;
+}
+
+article h2 {
+  font-style: italic;
+  background-color: pink;
+  display: inline-block;
+  margin-top: 60px;
+  padding: 30px;
+  border-radius: 10px;
+  font-size: 200%;
+}
+
+h2.footer {
+  text-align: right;
+  color: black;
+}
