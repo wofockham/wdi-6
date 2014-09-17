@@ -1,5 +1,5 @@
 <section class="forms-example">
-  <form>
+  <form action="/process" method="get">
     <div class="input-group">
       <label for="site_search">Search:</label>
       <input type="search" name="site_search" placeholder="Hotdogs">
@@ -14,5 +14,18 @@
       <label for="hotdog_count">How many hotdogs?</label>
       <input type="number" name="hotdog_count" id="hotdog_count" placeholder="75">
     </div>
+
+    <div class="input-group">
+      <label for="when">Start date:</label>
+      <input type="date" name="start_date" id="when">
+    </div>
+
+    <div class="input-group">
+      <label for="what_time">Start time:</label>
+      <input type="time" name="start_time" id="what_time">
+    </div>
+
+    <label></label>
+    <button>Send to the server</button>
   </form>
 </section>
