@@ -14,8 +14,7 @@ get '/faq' do
 end
 
 get '/process' do
-  @result = "#{ params['hotdog_count']} #{ params['hotdogs']} hotdogs consumed on #{ params['start_date'] }"
-  erb "MUAHAHAHAHAHAH GROWTH HACKING"
+  erb params.inspect
 end
 
 get '/search' do

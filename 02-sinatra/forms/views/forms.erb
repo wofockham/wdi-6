@@ -7,12 +7,17 @@
 
     <div class="input-group">
       <label for="hotdogs">What style of hotdog?</label>
-      <input type="text" name="hotdogs" id="hotdogs" placeholder="Austrian">
+      <input type="text" name="hotdogs" id="hotdogs" placeholder="Austrian" required>
+    </div>
+
+    <div class="input-group">
+      <label for="secret_password">Secret password:</label>
+      <input type="password" id="secret_password" name="secret_squirrel">
     </div>
 
     <div class="input-group">
       <label for="hotdog_count">How many hotdogs?</label>
-      <input type="number" name="hotdog_count" id="hotdog_count" placeholder="75">
+      <input type="number" name="hotdog_count" id="hotdog_count" placeholder="75" value="8004">
     </div>
 
     <div class="input-group">
@@ -23,6 +28,49 @@
     <div class="input-group">
       <label for="what_time">Start time:</label>
       <input type="time" name="start_time" id="what_time">
+    </div>
+
+    <div class="input-group">
+      <label></label>
+      <textarea name="biography" placeholder="Your life story goes here">kjsdkjaskdjaksdj</textarea>
+    </div>
+
+    <input type="hidden" name="whatever" value="kellogs">
+
+    <div class="input-group">
+      <label for="size_menu">Size:</label>
+      <select name="size" id="size_menu">
+        <option value="S">Small</option>
+        <option value="M">Medium</option>
+        <option value="L">Large</option>
+        <option value="XL">Extra Large</option>
+      </select>
+    </div>
+
+    <div class="input-group">
+      <label for="independence_question">Should Scotland be an independent country?</label>
+      <select name="independence" id="independence_question">
+        <option disabled>Please think carefully</option>
+        <option value="y">Yes</option>
+        <option value="y">Aye</option>
+        <option value="y">Fookn aye</option>
+        <option value="n" disabled>Nae</option>
+      </select>
+    </div>
+
+    <div class="input-group">
+      <p>Should Scotland be an independent country?</p>
+      <label for="independence_question_yes">Yes</label>
+      <input type="radio" id="independence_question_yes" name="independence2" value="y">
+      <label for="independence_question_no">No</label>
+      <input type="radio" id="independence_question_no" name="independence2" value="n">
+    </div>
+
+    <div class="input-group">
+      <label for="">Which of these genres is awful?</label>
+      <input type="checkbox" name="awful_genre[]" value="county" checked>Country
+      <input type="checkbox" name="awful_genre[]" value="dnb" checked>Drum and Bass
+      <input type="checkbox" name="awful_genre[]" value="dance" checked>Dance
     </div>
 
     <label></label>
