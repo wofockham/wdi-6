@@ -1,5 +1,5 @@
 body {
-  background-color: yellow;
+  background-color: #9A606E;
   min-height: 1000em;
 }
 
@@ -21,6 +21,7 @@ body {
 
 .relative {
   position: relative; /* This acts like static (the default) but changes the behaviour of children */
+  background-color: #222;
 }
 
 .absolute {
