@@ -1,0 +1,80 @@
+body {
+  background-color: yellow;
+  min-height: 1000em;
+}
+
+.container {
+  max-width: 960px;
+  border: 10px dashed black;
+  margin: auto;
+}
+
+.box {
+  width: 10em;
+  height: 10em;
+  border: 1px solid black;
+}
+
+.static {
+  position: static; /* This is the default so you don't usually need to apply it */
+}
+
+.relative {
+  position: relative; /* This acts like static (the default) but changes the behaviour of children */
+}
+
+.absolute {
+  position: absolute;
+  left: 75%;
+  top: 200px;
+}
+
+.fixed {
+  position: fixed;
+  right: 5%;
+  top: 150px;
+  background-color: rgba(255, 0, 255, 0.5);
+}
+
+.overflow-hidden {
+  overflow: hidden;
+  color: white;
+}
+
+.z-index1 {
+  z-index: 3;
+  background-color: black;
+  left: 45%;
+  top: 45%;
+}
+
+.z-index2 {
+  z-index: 2;
+  background-color: white;
+  left: 50%;
+  top: 50%;
+}
+
+.z-index3 {
+  z-index: 1;
+  background-color: red;
+  left: 55%;
+  top: 55%;
+}
+
+.goldfish {
+  overflow: hidden;
+}
+
+.goldfish img {
+  width: 200%;
+}
+
+
+
+
+
+
+
+
+
