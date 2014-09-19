@@ -1,0 +1,10 @@
+<h1>Stoner Landscape Gardening Pty Ltd</h1>
+
+<% @receipts.each do |line| %>
+  <ul>
+    <li>Company name: <em>Stoner Landscape Gardening Pty Ltd</em></li>
+    <li>Good/service provided: <em><%= line[0] %></em></li>
+    <li>Cost: $<em><%= line[1] %></em></li>
+    <li><strong>Thank you for your custom, missing you already</strong></li>
+  </ul>
+<% end %>
