@@ -1,0 +1,7 @@
+abbey,33,female
+riley,34,female
+marlo,3,male
+bowie,1,female
+ben,100,male
+Angie,17,female
+Brett,25,male
