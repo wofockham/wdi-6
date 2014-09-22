@@ -16,6 +16,8 @@ end
 get '/butterflies/:id' do
   query = "SELECT * FROM butterflies WHERE id=#{params['id']}"
   @butterfly = query_db query
+  @butterfly = @butterfly.first # Strip off the array.
+  erb :show
 end
 
 post '/butterflies' do

@@ -1,0 +1,29 @@
+body {
+  background-color: #ddd;
+}
+
+a {
+  color: #444;
+}
+
+.container {
+  max-width: 960px;
+  margin: auto;
+}
+
+nav ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+nav li {
+  display: inline;
+}
+
+.butterfly img {
+  max-width: 500px;
+  display: block;
+  margin: auto;
+  box-shadow: 5px 5px 20px #000;
+  border-radius: 5px;
+}
