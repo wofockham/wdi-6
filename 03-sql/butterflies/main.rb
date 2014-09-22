@@ -5,7 +5,24 @@ require 'sinatra/reloader'
 require 'sqlite3'
 
 get '/' do
-  db = SQLite3::Database.new 'butterflies.db'
-  butterflies = db.execute 'SELECT * FROM butterflies'
+  butterflies = query_db 'SELECT * FROM butterflies'
   erb butterflies.inspect
+end
+
+get '/butterflies/new' do
+  erb :new
+end
+
+post '/butterflies' do
+  query = "INSERT INTO butterflies (name, image, family) VALUES ('#{params['name']}', '#{params['image']}', '#{params['family']}')"
+  query_db query
+  redirect to('/')
+end
+
+def query_db(query)
+  db = SQLite3::Database.new 'butterflies.db'
+  db.results_as_hash = true
+  result = db.execute query
+  db.close
+  result
 end
