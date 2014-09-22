@@ -13,6 +13,11 @@ get '/butterflies/new' do
   erb :new
 end
 
+get '/butterflies/:id' do
+  query = "SELECT * FROM butterflies WHERE id=#{params['id']}"
+  @butterfly = query_db query
+end
+
 post '/butterflies' do
   query = "INSERT INTO butterflies (name, image, family) VALUES ('#{params['name']}', '#{params['image']}', '#{params['family']}')"
   query_db query
