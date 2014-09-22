@@ -17,7 +17,28 @@ get '/butterflies/:id' do
   query = "SELECT * FROM butterflies WHERE id=#{params['id']}"
   @butterfly = query_db query
   @butterfly = @butterfly.first # Strip off the array.
+  redirect to('/') unless @butterfly
   erb :show
+end
+
+post '/butterflies/:id' do
+  query = "UPDATE butterflies SET name='#{params['name']}', image='#{params['image']}', family='#{params['family']}' WHERE id=#{params['id']}"
+  query_db query
+  redirect to("/butterflies/#{params['id']}")
+end
+
+get '/butterflies/:id/edit' do
+  query = "SELECT * FROM butterflies WHERE id=#{params['id']}"
+  @butterfly = query_db query
+  @butterfly = @butterfly.first
+  redirect to('/') unless @butterfly
+  erb :edit
+end
+
+get '/butterflies/:id/delete' do
+  query = "DELETE FROM butterflies WHERE id=#{params['id']}"
+  query_db query
+  redirect to('/')
 end
 
 post '/butterflies' do
@@ -26,7 +47,12 @@ post '/butterflies' do
   redirect to('/')
 end
 
+get '/*' do
+  redirect to('/')
+end
+
 def query_db(query)
+  puts "Preparing to execute query: #{ query }"
   db = SQLite3::Database.new 'butterflies.db'
   db.results_as_hash = true
   result = db.execute query
