@@ -5,8 +5,8 @@ require 'sinatra/reloader'
 require 'sqlite3'
 
 get '/' do
-  butterflies = query_db 'SELECT * FROM butterflies'
-  erb butterflies.inspect
+  @butterflies = query_db 'SELECT * FROM butterflies'
+  erb :index
 end
 
 get '/butterflies/new' do
