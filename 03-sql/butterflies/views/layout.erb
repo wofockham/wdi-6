@@ -12,6 +12,10 @@
       <ul>
         <li><a href="/">Home</a></li>
         <li><a href="/butterflies/new">New butterfly</a></li>
+        <li>Families:</li>
+        <% @families.each do |family| %>
+          <li><a href="/butterflies/families/<%= family['family'] %>"><%= family['family'] %></a></li>
+        <% end %>
       </ul>
     </nav>
     <h1>Butterfly Database</h1>

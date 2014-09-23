@@ -1,5 +1,10 @@
-<ul>
+<ul class="butterflies">
   <% @butterflies.each do |butterfly| %>
-    <li><a href="/butterflies/<%= butterfly['id'] %>"><%= butterfly['name'] %></a></li>
+    <li>
+      <a href="/butterflies/<%= butterfly['id'] %>">
+        <img src="<%= butterfly['image'] %>">
+        <%= butterfly['name'] %>
+      </a>
+    </li>
   <% end %>
 </ul>

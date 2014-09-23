@@ -1,5 +1,8 @@
+@import url(http://fonts.googleapis.com/css?family=Cabin:400,500,600,700,400italic,500italic,600italic,700italic);
+
 body {
   background-color: #ddd;
+  font-family: 'Cabin', sans-serif;
 }
 
 a {
@@ -18,6 +21,25 @@ nav ul {
 
 nav li {
   display: inline;
+}
+
+ul.butterflies {
+  list-style: none;
+  padding-left: 0;
+}
+
+.butterflies img {
+  max-height: 200px;
+  display: block;
+  margin: auto;
+}
+
+.butterflies li {
+  width: 300px;
+  display: inline-block;
+  border: 1px solid black;
+  text-align: center;
+  overflow: hidden;
 }
 
 .butterfly img {

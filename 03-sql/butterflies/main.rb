@@ -4,8 +4,18 @@ require 'sinatra/reloader'
 
 require 'sqlite3'
 
+before do
+  @families = query_db 'SELECT DISTINCT family FROM butterflies'
+end
+
 get '/' do
   @butterflies = query_db 'SELECT * FROM butterflies'
+  erb :index
+end
+
+get '/butterflies/families/:family' do
+  query = "SELECT * FROM butterflies WHERE family='#{params[:family]}'"
+  @butterflies = query_db query
   erb :index
 end
 
