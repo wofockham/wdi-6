@@ -36,10 +36,20 @@ ul.butterflies {
 
 .butterflies li {
   width: 300px;
+  height: 300px;
   display: inline-block;
   border: 1px solid black;
   text-align: center;
   overflow: hidden;
+  background-size: cover;
+  background-position: center;
+}
+
+.butterflies li a {
+  background-color: white;
+  padding: 0.2em 1em;
+  border-radius: 1em;
+
 }
 
 .butterfly img {

@@ -8,6 +8,10 @@ before do
   @families = query_db 'SELECT DISTINCT family FROM butterflies'
 end
 
+get '/pry' do
+  binding.pry
+end
+
 get '/' do
   @butterflies = query_db 'SELECT * FROM butterflies'
   erb :index
@@ -24,7 +28,7 @@ get '/butterflies/new' do
 end
 
 get '/butterflies/:id' do
-  query = "SELECT * FROM butterflies WHERE id=#{params['id']}"
+  query = "SELECT * FROM butterflies WHERE id=#{ params['id'] }"
   @butterfly = query_db query
   @butterfly = @butterfly.first # Strip off the array.
   redirect to('/') unless @butterfly
