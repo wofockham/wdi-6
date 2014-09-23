@@ -3,17 +3,21 @@ require 'sinatra'
 require 'sinatra/reloader'
 require 'active_record'
 
+ActiveRecord::Base.logger = Logger.new(STDERR)
+
 ActiveRecord::Base.establish_connection(
   :adapter => 'sqlite3',
   :database => 'butterflies.db'
 )
 
-binding.pry
-
-# require 'sqlite3'
+require_relative 'butterfly'
 
 before do
-  @families = query_db 'SELECT DISTINCT family FROM butterflies'
+  @families = Butterfly.select(:family).uniq
+end
+
+after do
+  ActiveRecord::Base.connection.close
 end
 
 get '/pry' do
@@ -21,13 +25,12 @@ get '/pry' do
 end
 
 get '/' do
-  @butterflies = query_db 'SELECT * FROM butterflies'
+  @butterflies = Butterfly.all.order(:name).shuffle
   erb :index
 end
 
 get '/butterflies/families/:family' do
-  query = "SELECT * FROM butterflies WHERE family='#{params[:family]}'"
-  @butterflies = query_db query
+  @butterflies = Butterfly.where(:family => params[:family])
   erb :index
 end
 
@@ -36,48 +39,43 @@ get '/butterflies/new' do
 end
 
 get '/butterflies/:id' do
-  query = "SELECT * FROM butterflies WHERE id=#{ params['id'] }"
-  @butterfly = query_db query
-  @butterfly = @butterfly.first # Strip off the array.
+  @butterfly = Butterfly.find params[:id]
   redirect to('/') unless @butterfly
   erb :show
 end
 
 post '/butterflies/:id' do
-  query = "UPDATE butterflies SET name='#{params['name']}', image='#{params['image']}', family='#{params['family']}' WHERE id=#{params['id']}"
-  query_db query
-  redirect to("/butterflies/#{params['id']}")
+  butterfly = Butterfly.find params[:id]
+  butterfly.name = params[:name]
+  butterfly.image = params[:image]
+  butterfly.family = params[:family]
+
+  butterfly.save
+  redirect to("/butterflies/#{ butterfly.id }")
 end
 
 get '/butterflies/:id/edit' do
-  query = "SELECT * FROM butterflies WHERE id=#{params['id']}"
-  @butterfly = query_db query
-  @butterfly = @butterfly.first
+  @butterfly = Butterfly.find params[:id]
   redirect to('/') unless @butterfly
   erb :edit
 end
 
 get '/butterflies/:id/delete' do
-  query = "DELETE FROM butterflies WHERE id=#{params['id']}"
-  query_db query
+  butterfly = Butterfly.find params[:id]
+  butterfly.destroy
   redirect to('/')
 end
 
 post '/butterflies' do
-  query = "INSERT INTO butterflies (name, image, family) VALUES ('#{params['name']}', '#{params['image']}', '#{params['family']}')"
-  query_db query
+  butterfly = Butterfly.new
+  butterfly.name = params[:name]
+  butterfly.image = params[:image]
+  butterfly.family = params[:family]
+
+  butterfly.save
   redirect to('/')
 end
 
 get '/*' do
   redirect to('/')
-end
-
-def query_db(query)
-  puts "Preparing to execute query: #{ query }"
-  db = SQLite3::Database.new 'butterflies.db'
-  db.results_as_hash = true
-  result = db.execute query
-  db.close
-  result
 end
