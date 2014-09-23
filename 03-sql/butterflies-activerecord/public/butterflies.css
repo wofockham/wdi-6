@@ -1,0 +1,68 @@
+@import url(http://fonts.googleapis.com/css?family=Cabin:400,500,600,700,400italic,500italic,600italic,700italic);
+
+body {
+  background-color: #ddd;
+  font-family: 'Cabin', sans-serif;
+}
+
+a {
+  color: #444;
+}
+
+.container {
+  max-width: 960px;
+  margin: auto;
+}
+
+nav ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+nav li {
+  display: inline;
+}
+
+ul.butterflies {
+  list-style: none;
+  padding-left: 0;
+}
+
+.butterflies img {
+  max-height: 200px;
+  display: block;
+  margin: auto;
+}
+
+.butterflies li {
+  width: 300px;
+  height: 300px;
+  display: inline-block;
+  border: 1px solid black;
+  text-align: center;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+}
+
+.butterflies li a {
+  background-color: white;
+  padding: 0.2em 1em;
+  border-radius: 1em;
+
+}
+
+.butterfly img {
+  max-width: 500px;
+  display: block;
+  margin: auto;
+  box-shadow: 5px 5px 20px #000;
+  border-radius: 5px;
+}
+
+.butterfly section {
+  text-align: right;
+}
+
+
+

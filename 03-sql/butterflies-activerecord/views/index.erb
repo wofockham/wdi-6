@@ -1,0 +1,9 @@
+<ul class="butterflies">
+  <% @butterflies.each do |butterfly| %>
+    <li style="background-image:url(<%= butterfly['image'] %>);">
+      <a href="/butterflies/<%= butterfly['id'] %>">
+        <%= butterfly['name'] %>
+      </a>
+    </li>
+  <% end %>
+</ul>

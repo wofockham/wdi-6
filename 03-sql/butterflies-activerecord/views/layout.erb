@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Butterflies Database</title>
+  <link rel="stylesheet" href="/butterflies.css">
+</head>
+<body>
+
+  <div class="container">
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/butterflies/new">New butterfly</a></li>
+        <li>Families:</li>
+        <% @families.each do |family| %>
+          <li><a href="/butterflies/families/<%= family['family'] %>"><%= family['family'] %></a></li>
+        <% end %>
+      </ul>
+    </nav>
+    <h1>Butterfly Database</h1>
+    <%= yield %>
+  </div>
+
+</body>
+</html>
