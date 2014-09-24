@@ -11,6 +11,7 @@ ActiveRecord::Base.establish_connection(
 )
 
 require_relative 'butterfly'
+require_relative 'plant'
 
 before do
   @families = Butterfly.select(:family).uniq
@@ -85,9 +86,11 @@ end
 ###############################################################################
 
 get '/plants' do
+  @plants = Plant.all
+  erb :plants_index
 end
 
-get '/*' do
-  redirect to('/')
-end
+# get '/*' do
+#   redirect to('/')
+# end
 
