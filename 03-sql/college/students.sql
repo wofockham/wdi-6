@@ -11,6 +11,11 @@ CREATE TABLE courses (
   name TEXT NOT NULL
 );
 
+CREATE TABLE courses_students (
+  course_id INTEGER,
+  student_id INTEGER
+);
+
 INSERT INTO students (first, last, dob, gpa) VALUES ('bill', 'jones', '1/1/1990', 3.3);
 INSERT INTO students (first, last, dob, gpa) VALUES ('janet', 'jones', '2/1/1990', 3.7);
 INSERT INTO students (first, last, dob, gpa) VALUES ('jill', 'smith', '2/1/1980', 3.5);
