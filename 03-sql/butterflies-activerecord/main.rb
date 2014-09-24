@@ -90,6 +90,18 @@ get '/plants' do
   erb :plants_index
 end
 
+get '/plants/new' do
+  erb :plants_new
+end
+
+get '/plants/:id' do
+  @plant = Plant.find params[:id]
+  redirect to('/plants') unless @plant
+  erb :plants_show
+end
+
+
+
 # get '/*' do
 #   redirect to('/')
 # end
