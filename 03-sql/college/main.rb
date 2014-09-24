@@ -9,5 +9,6 @@ ActiveRecord::Base.establish_connection(
 )
 
 require_relative 'student'
+require_relative 'course'
 
 binding.pry
