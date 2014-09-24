@@ -23,5 +23,6 @@ ActiveRecord::Base.establish_connection(
 )
 
 require_relative 'butterfly'
+require_relative 'plant'
 
 binding.pry
