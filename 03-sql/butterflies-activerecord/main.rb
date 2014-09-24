@@ -25,11 +25,15 @@ get '/pry' do
   binding.pry
 end
 
+get '/' do
+  redirect to('/butterflies')
+end
+
 ###############################################################################
 # BUTTERFLIES #################################################################
 ###############################################################################
 
-get '/' do
+get '/butterflies' do
   @butterflies = Butterfly.all.order(:name).shuffle
   erb :index
 end
@@ -103,13 +107,31 @@ post '/plants' do
   redirect to('/plants')
 end
 
+post '/plants/:id' do
+  plant = Plant.find params[:id]
+  plant.name = params[:name]
+  plant.image = params[:image]
+
+  plant.save
+  redirect to("/plants/#{ plant.id }")
+end
+
 get '/plants/:id' do
   @plant = Plant.find params[:id]
   redirect to('/plants') unless @plant
   erb :plants_show
 end
 
+get '/plants/:id/edit' do
+  @plant = Plant.find params[:id]
+  erb :plants_edit
+end
 
+get '/plants/:id/delete' do
+  plant = Plant.find params[:id]
+  plant.destroy
+  redirect to('/plants')
+end
 
 # get '/*' do
 #   redirect to('/')
