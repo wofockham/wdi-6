@@ -94,6 +94,15 @@ get '/plants/new' do
   erb :plants_new
 end
 
+post '/plants' do
+  plant = Plant.new
+  plant.name = params[:name]
+  plant.image = params[:image]
+  plant.save
+
+  redirect to('/plants')
+end
+
 get '/plants/:id' do
   @plant = Plant.find params[:id]
   redirect to('/plants') unless @plant
