@@ -58,6 +58,7 @@ post '/butterflies/:id' do
   butterfly.name = params[:name]
   butterfly.image = params[:image]
   butterfly.family = params[:family]
+  butterfly.plant_id = params[:plant_id]
 
   butterfly.save
   redirect to("/butterflies/#{ butterfly.id }")
@@ -80,6 +81,7 @@ post '/butterflies' do
   butterfly.name = params[:name]
   butterfly.image = params[:image]
   butterfly.family = params[:family]
+  butterfly.plant_id = params[:plant_id]
 
   butterfly.save
   redirect to('/')

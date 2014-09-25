@@ -3,7 +3,17 @@
 
   <h2><%= @butterfly.name %></h2>
 
-  Family: <em><%= @butterfly.family %></em>
+  <p>Family: <em><%= @butterfly.family %></em></p>
+
+  <% if @butterfly.plant %>
+    <p>Larval plant:
+      <em>
+        <a href="/plants/<%= @butterfly.plant.id %>">
+          <%= @butterfly.plant.name %>
+        </a>
+      </em>
+    </p>
+  <% end %>
 
   <section>
     <a href="/butterflies/<%= @butterfly.id %>/edit">Edit</a>

@@ -10,5 +10,13 @@
   <label for="family">Family:</label>
   <input id="family" name="family" placeholder="Nymphalidae">
 
+  <label>Larval plant: </label>
+  <select name="plant_id">
+    <option value=""></option>
+    <% Plant.all.each do |plant| %>
+      <option value="<%= plant.id %>"><%= plant.name %></option>
+    <% end %>
+  </select>
+
   <button>Create butterfly</button>
 </form>

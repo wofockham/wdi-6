@@ -3,6 +3,10 @@
 
   <h2><%= @plant.name %></h2>
 
+  <% @plant.butterflies.each do |butterfly| %>
+    <a href="/butterflies/<%= butterfly.id %>"><%= butterfly.name %></a><br>
+  <% end %>
+
   <section>
     <a href="/plants/<%= @plant.id %>/edit">Edit</a>
     <a href="/plants/<%= @plant.id %>/delete">Delete</a>
