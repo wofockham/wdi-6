@@ -1,0 +1,6 @@
+img {
+  border-radius: 100%;
+  border: 10px solid black;
+  display: block;
+  margin: auto;
+}
