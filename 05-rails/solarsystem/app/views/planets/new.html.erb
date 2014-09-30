@@ -1,16 +1,16 @@
-<form action="/planets">
+<form action="/planets" method="post">
   <label>Name:</label>
-  <input type="text" name="name" autofocus>
+  <input type="text" name="planet[name]" autofocus>
   <label>Image:</label>
-  <input type="text" name="image">
+  <input type="text" name="planet[image]">
   <label>Orbit:</label>
-  <input type="text" name="orbit">
+  <input type="text" name="planet[orbit]">
   <label>Diameter:</label>
-  <input type="text" name="diameter">
+  <input type="text" name="planet[diameter]">
   <label>Mass:</label>
-  <input type="text" name="mass">
+  <input type="text" name="planet[mass]">
   <label>Moons:</label>
-  <input type="text" name="moons">
+  <input type="text" name="planet[moons]">
 
   <button>Planet me!</button>
 </form>
