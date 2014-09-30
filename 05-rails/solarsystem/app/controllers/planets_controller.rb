@@ -17,6 +17,15 @@ class PlanetsController < ApplicationController
     @planet = Planet.find params[:id]
   end
 
+  def destroy
+    planet = Planet.find params[:id]
+    planet.destroy
+    redirect_to(planets_path)
+  end
+
+  def edit
+  end
+
   private
   def planet_params
     # Strong params aka params whitelisting

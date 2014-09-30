@@ -7,4 +7,5 @@
 <p>Mass: <%= @planet.mass %></p>
 <p>Moons: <%= @planet.moons %></p>
 
+<%= link_to('Edit planet', planet_edit_path(@planet.id)) %>
 <%= button_to('Delete planet', planet_delete_path(@planet.id)) %>
