@@ -8,6 +8,13 @@
 </head>
 <body>
 
+<nav>
+  <ul>
+    <li><%= link_to('Planets', planets_path) %></li>
+    <li><%= link_to('New Planet', planets_new_path) %></li>
+  </ul>
+</nav>
+
 <%= yield %>
 
 </body>
