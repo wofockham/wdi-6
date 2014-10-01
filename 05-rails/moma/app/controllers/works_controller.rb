@@ -8,6 +8,8 @@ class WorksController < ApplicationController
   end
 
   def create
+    work = Work.create work_params
+    redirect_to work
   end
 
   def show
@@ -21,5 +23,10 @@ class WorksController < ApplicationController
   end
 
   def destroy
+  end
+
+  private
+  def work_params
+    params.require(:work).permit(:title, :year, :medium, :style, :image)
   end
 end
