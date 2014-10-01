@@ -17,9 +17,13 @@ class ArtistsController < ApplicationController
   end
 
   def edit
+    @artist = Artist.find params[:id]
   end
 
   def update
+    artist = Artist.find params[:id]
+    artist.update artist_params
+    redirect_to artist
   end
 
   def destroy

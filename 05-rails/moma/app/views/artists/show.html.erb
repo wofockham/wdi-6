@@ -1,4 +1,5 @@
 <h2><%= @artist.name %></h2>
 <%= image_tag @artist.image %>
 
+<%= link_to 'Edit', edit_artist_path(@artist) %>
 <%= link_to 'Delete', @artist, :method => :delete, :data => { :confirm => 'Are you sure?' } %>
