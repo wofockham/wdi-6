@@ -1,2 +1,3 @@
 <h2><%= @work.title %></h2>
 <%= image_tag(@work.image) %>
+<%= link_to('Delete', @work, :method => :delete, :data => {:confirm => 'Are you sure?' }) %>
