@@ -1,0 +1,30 @@
+<%= form_for @work do |f| %>
+  <p>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </p>
+
+  <p>
+    <%= f.label :year %>
+    <%= f.text_field :year %>
+  </p>
+
+  <p>
+    <%= f.label :medium %>
+    <%= f.text_field :medium %>
+  </p>
+
+  <p>
+    <%= f.label :style %>
+    <%= f.text_field :style %>
+  </p>
+
+  <p>
+    <%= f.label :image %>
+    <%= f.url_field :image %>
+  </p>
+
+  <label></label>
+  <%= f.submit %>
+
+<% end %>
