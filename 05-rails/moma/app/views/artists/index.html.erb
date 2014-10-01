@@ -3,7 +3,7 @@
     <li><%= image_tag(artist.image, :class => 'thumbnail') %></li>
     <li><%= link_to(artist.name, artist) %></li>
     <li>Nationality: <%= artist.nationality %></li>
-    <li>Date of birth: <%= artist.dob.strftime('%A %B %d %Y') %></li>
+    <li>Date of birth: <%= artist.dob.strftime('%A %B %d %Y') if artist.dob %></li>
     <li>Period: <%= artist.period %></li>
   </ul>
 <% end %>

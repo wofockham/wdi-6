@@ -1,4 +1,5 @@
 <h2><%= @work.title %></h2>
+<h3>Artist: <%= link_to @work.artist.name, @work.artist %></h3>
 <%= image_tag(@work.image) %>
 <%= link_to('Edit', edit_work_path(@work)) %>
 <%= link_to('Delete', @work, :method => :delete, :data => {:confirm => 'Are you sure?' }) %>

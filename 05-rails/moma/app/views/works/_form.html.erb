@@ -24,6 +24,11 @@
     <%= f.url_field :image %>
   </p>
 
+  <p>
+    <%= f.label :artist_id %>
+    <%= f.select :artist_id, Artist.all.map {|artist| [artist.name, artist.id] }, :include_blank => true, :prompt => 'Select artist' %>
+  </p>
+
   <label></label>
   <%= f.submit %>
 
