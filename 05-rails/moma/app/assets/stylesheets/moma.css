@@ -1,3 +1,14 @@
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-align: right;
+}
+
+nav li {
+  display: inline;
+}
+
 img.thumbnail {
   max-width: 10em;
 }

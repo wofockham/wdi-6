@@ -1,6 +1,6 @@
 <% @works.each do |work| %>
   <ul>
     <li><%= image_tag(work.image, :class => 'thumbnail') %></li>
-    <li><%= work.title %></li>
+    <li><%= link_to(work.title, work) %></li>
   </ul>
 <% end %>
