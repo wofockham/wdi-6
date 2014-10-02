@@ -28,3 +28,23 @@ u3 = User.create(:name => 'Jonesy')
 m1 = Mixtape.create(:name => 'Code Jams')
 m2 = Mixtape.create(:name => 'Sex Jams')
 m3 = Mixtape.create(:name => 'Commute Jams')
+
+r1.songs << s2
+r2.songs << s3
+r3.songs = [s1]
+
+a1.songs << s2
+a2.songs << s1
+a3.songs = [s3]
+
+s1.genres << g2 << g1
+s2.genres << g1
+s3.genres << g3
+
+u1.mixtapes << m1
+u2.mixtapes << m2
+u3.mixtapes << m3
+
+m1.songs << s1 << s2 << s3
+m2.songs << s2
+m3.songs << s1 << s3
