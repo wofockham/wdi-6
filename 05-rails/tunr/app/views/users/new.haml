@@ -1,0 +1,15 @@
+
+%div.charming
+  %h2.hotdogs Hello world
+
+  %h3
+    = Song.count
+    songs in the database
+
+  %label
+    HOW MANY HIGHPANTS
+    %input#balloons.funpark{:name => 'highpants', :autofocus => true}
+
+  %ul
+    - Song.all.each do |song|
+      %li.song_title= song.name
