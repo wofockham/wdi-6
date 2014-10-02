@@ -26,6 +26,15 @@ nav a {
   margin: auto;
 }
 
+.field_with_errors {
+  display: inline;
+}
+
+.field_with_errors input {
+  background-color: green;
+  color: red;
+}
+
 label {
   display: inline-block;
   min-width: 150px;
