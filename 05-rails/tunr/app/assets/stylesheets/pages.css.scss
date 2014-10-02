@@ -1,0 +1,27 @@
+body {
+  margin: 0;
+}
+
+nav {
+  background-color: purple;
+  color: white;
+  padding: 1em 0;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+nav li {
+  display: inline-block;
+}
+
+nav a {
+  color: white;
+}
+
+.container {
+  max-width: 960px;
+  margin: auto;
+}

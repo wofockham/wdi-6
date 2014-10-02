@@ -8,7 +8,18 @@
 </head>
 <body>
 
-<%= yield %>
+<nav>
+  <div class="container">
+    <ul>
+      <li><%= link_to('Home', root_path) %></li>
+      <li><%= link_to('Signup', new_user_path) %></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+  <%= yield %>
+</div>
 
 </body>
 </html>
