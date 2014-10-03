@@ -1,0 +1,17 @@
+%h2
+  Editing
+  = @user.name
+
+= form_for @user do |f|
+  %div
+    = f.label :name
+    = f.text_field :name
+  %div
+    = f.label :email
+    = f.email_field :email
+
+  %div
+    = f.label :avatar
+    = f.url_field :avatar
+
+  = f.submit
