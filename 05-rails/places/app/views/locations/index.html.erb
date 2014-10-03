@@ -1,0 +1,4 @@
+<%= form_tag '/results', :method => :get do %>
+  <%= text_field_tag(:address, nil, :placeholder => 'Which address?') %>
+  <%= submit_tag('Go') %>
+<% end %>
