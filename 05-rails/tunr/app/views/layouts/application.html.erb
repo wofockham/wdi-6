@@ -11,11 +11,8 @@
 <nav>
   <div class="container">
     <ul>
-      <li><%= "Hello #{ @current_user.name }" if @current_user %></li>
       <li><%= link_to('Home', root_path) %></li>
-      <li><%= link_to('Signup', new_user_path) %></li>
-      <li><%= link_to('Sign in', login_path) %></li>
-      <li><%= link_to('Sign out', login_path, :method => :delete, :data => {:confirm => 'Are you sure?'}) %></li>
+      <%== intellinav %>
     </ul>
   </div>
 </nav>
