@@ -1,0 +1,4 @@
+%h2 Our beloved users
+%ul
+- @users.each do |user|
+  %li= link_to user.name, user
