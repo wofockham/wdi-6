@@ -1,0 +1,4 @@
+<%= form_tag '/results', :method => :get do %>
+  <%= text_field_tag 'query', nil, :placeholder => 'Hotdogs' %>
+  <%= submit_tag 'Get pins' %>
+<% end %>
