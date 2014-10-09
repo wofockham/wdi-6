@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  padding-top: 60px;
 }
 
 nav {
@@ -21,24 +22,12 @@ nav a {
   color: white;
 }
 
-.container {
-  max-width: 960px;
-  margin: auto;
-}
-
 .field_with_errors {
   display: inline;
 }
 
-.field_with_errors input {
-  background-color: green;
-  color: red;
-}
-
-label {
-  display: inline-block;
-  min-width: 150px;
-  text-align: right;
+.groucho {
+  width: 30em;
 }
 
 
