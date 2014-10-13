@@ -1,3 +1,9 @@
 <% @urls.each do |url| %>
   <%= image_tag(url) %>
 <% end %>
+
+<% cuisines = ['blah', 'ba'] %>
+
+<select name="cuisine">
+  <%= cuisines.each do |c| %>
+    <option><%=
