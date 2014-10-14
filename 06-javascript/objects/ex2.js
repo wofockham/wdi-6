@@ -25,17 +25,9 @@ var library = [
 for (var i = 0; i < library.length; i++) {
   var book = library[i];
   if (book.alreadyRead) {
-    console.log(['You already read', book.title, 'by', book.author].join(' '));
+    var status = 'You already read';
   } else {
-    console.log(['You still need to read', book.title, 'by', book.author].join(' '));
+    var status = 'You still need to read';
   }
+  console.log([status, book.title, 'by', book.author].join(' '));
 }
-
-
-
-
-
-
-
-
-
