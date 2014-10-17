@@ -21,7 +21,9 @@ $(document).ready(function () {
   $('#colors').on('click', '.box', setColor); // Delegation!
   $('#canvas').on('mouseover', '.pixel', paintPixel);
 
-  for(var i = 0; i < 1000; i++) {
-    $('#canvas').append('<div class="pixel"/>');
+  var pixels = '';
+  for(var i = 0; i < 5000; i++) {
+    pixels += '<div class="pixel"></div>';
   }
+  $('#canvas').append(pixels);
 });
