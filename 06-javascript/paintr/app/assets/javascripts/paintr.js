@@ -19,10 +19,10 @@ var paintPixel = function () {
 $(document).ready(function () {
   $('#add_color').on('click', addColor);
   $('#colors').on('click', '.box', setColor); // Delegation!
-  $('#canvas').on('mouseover', '.pixel', paintPixel);
+  $('#canvas').on('click', '.pixel', paintPixel);
 
   var pixels = '';
-  for(var i = 0; i < 5000; i++) {
+  for(var i = 0; i < 10000; i++) {
     pixels += '<div class="pixel"></div>';
   }
   $('#canvas').append(pixels);
