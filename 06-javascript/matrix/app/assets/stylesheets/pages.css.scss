@@ -1,3 +1,14 @@
-// Place all the styles related to the Pages controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+body {
+  background-color: #020;
+  color: #0f0;
+}
+
+.box {
+  min-width: 3em;
+  height: 3em;
+  display: inline-block;
+  border: 1px dashed #0f0;
+  text-align: center;
+  line-height: 3;
+  margin: 0.1em;
+}
