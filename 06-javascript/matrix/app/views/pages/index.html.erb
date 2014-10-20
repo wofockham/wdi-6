@@ -1,9 +1,10 @@
 <h1>underscore and timers matrix</h1>
 
 <div>
-  <%= text_field_tag 'number', nil, :autofocus => true %>
+  <%= text_field_tag 'number', nil, :autofocus => true, :placeholder => 'Enter a number or an equation using i' %>
   <%= button_tag 'add number', :id => 'add_number' %>
   <%= button_tag 'square', :id => 'square' %>
+  <%= button_tag 'calculate', :id => 'calculate' %>
 </div>
 
 <div id="boxes">
