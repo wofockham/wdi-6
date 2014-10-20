@@ -1,51 +1,71 @@
 $(document).ready(function () {
-  $('#add_number').on('click', addNumber);
-  $('#square').on('click', square);
-  $('#calculate').on('click', calculate);
+  $('#add_number').on('click', matrix.addNumber);
+  $('#square').on('click', matrix.square);
+  $('#calculate').on('click', matrix.calculate);
+  $('#start').on('click', matrix.startSpew);
+  $('#stop').on('click', matrix.stopSpew);
 });
 
-var numbers = [];
+var matrix = {};
 
-var addNumber = function () {
+matrix.numbers = [];
+matrix.spewTimer;
+
+matrix.startSpew = function () {
+  matrix.stopSpew();
+  matrix.spewTimer = setInterval(matrix.generateRandom, 100);
+};
+
+matrix.stopSpew = function () {
+  clearInterval(matrix.spewTimer);
+};
+
+matrix.generateRandom = function () {
+  var n = _.random(1000);
+  matrix.numbers.push(n);
+  matrix.showBox(n);
+};
+
+matrix.addNumber = function () {
   var number = parseInt( $('#number').val() );
-  numbers.push(number);
+  matrix.numbers.push(number);
 
-  showBox(number);
+  matrix.showBox(number);
 
   $('#number').val('').focus();
 };
 
-var square = function () {
+matrix.square = function () {
   var squareValue = function (i) {
     return i * i;
   };
 
-  numbers = _(numbers).map(squareValue);
-  showBoxes();
+  matrix.numbers = _(matrix.numbers).map(squareValue);
+  matrix.showBoxes();
 };
 
-var calculate = function () {
-  numbers = _(numbers).map(funkyCalc);
-  showBoxes();
+matrix.calculate = function () {
+  matrix.numbers = _(matrix.numbers).map(matrix.funkyCalc);
+  matrix.showBoxes();
 };
 
-var funkyCalc = function (i) {
+matrix.funkyCalc = function (i) {
   var equation = $('#number').val();
   return eval(equation);
 };
 
 
-var showBox = function (i) {
+matrix.showBox = function (i) {
   var $box = $('<div></div>').addClass('box');
   $box.text( i );
   $('#boxes').prepend($box);
 };
 
-var showBoxes = function () {
-  emptyBoxes();
-  _(numbers).each(showBox);
+matrix.showBoxes = function () {
+  matrix.emptyBoxes();
+  _(matrix.numbers).each(matrix.showBox);
 };
 
-var emptyBoxes = function () {
+matrix.emptyBoxes = function () {
   $('#boxes').empty();
 };
