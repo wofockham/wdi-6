@@ -9,3 +9,8 @@
 <p>
   Created at: <%= @task.created_at %>
 </p>
+
+<p>
+  <%= link_to('Edit', edit_task_path(@task)) %>
+  <%= link_to('Delete', @task, :method => 'delete') %>
+</p>

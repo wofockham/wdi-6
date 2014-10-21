@@ -10,4 +10,25 @@ class TasksController < ApplicationController
   def new
     @task = Task.new
   end
+
+  def create
+    @task = Task.new task_params
+    if @task.save
+      redirect_to @task
+    else
+      render :new
+    end
+  end
+
+  def destroy
+    task = Task.find params[:id]
+    task.destroy
+    redirect_to tasks_path
+  end
+
+  private
+  # Strong parameters
+  def task_params
+    params.require(:task).permit(:description, :completed)
+  end
 end
