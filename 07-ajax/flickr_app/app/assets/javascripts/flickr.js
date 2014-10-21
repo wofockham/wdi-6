@@ -4,6 +4,17 @@ $(document).ready(function () {
 
 var searchFlickr = function (event) {
   var query = $('#query').val();
-  var flickrUrl = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=2f5ac274ecfac5a455f38745704ad084&text=' + query;
+  var flickrUrl = 'https://api.flickr.com/services/rest/';
+  $.getJSON(flickrUrl, {
+    method: 'flickr.photos.search',
+    api_key: '2f5ac274ecfac5a455f38745704ad084',
+    text: query,
+    format: 'json',
+    jsoncallback: 'processImages'
+  });
   console.log(flickrUrl);
+};
+
+var processImages = function (result) {
+  debugger;
 };
