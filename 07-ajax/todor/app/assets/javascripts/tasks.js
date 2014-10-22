@@ -19,25 +19,45 @@ $(document).ready(function () {
 var fetchTasks = function () {
   $.ajax('/tasks.json').done(function (tasks) {
     // Show each task on the page.
-
     $('#tasks').empty();
 
     $.each(tasks, function (index, task) {
-      var $task = $('<li></li>');
-      var $taskLink = $('<a></a>');
-      var $completed = $('<input type="checkbox">');
-      var $deleteLink = $('<a></a>');
-      $deleteLink.text(' \u2718');
-      $deleteLink.attr('href', '/tasks/' + task.id);
-      if (task.completed) {
-        $completed.attr('checked', 'checked');
-      }
-      $taskLink.text(task.description);
-      $taskLink.attr('href', '/tasks/' + task.id);
-      $taskLink.appendTo($task);
-      $task.prepend($completed);
-      $task.append($deleteLink);
-      $task.appendTo('#tasks');
+      addTask(task);
     });
   });
 };
+
+var addTask = function (task) {
+  var $task = $('<li></li>');
+  var $taskLink = $('<a></a>');
+  var $deleteLink = $('<button>\u2718</button>');
+  $deleteLink.on('click', function () {
+    var deleteUrl = '/tasks/' + task.id;
+    console.log('about to delete at', deleteUrl);
+    $.ajax(deleteUrl, {
+      type: 'DELETE',
+      dataType: 'json'
+    }).done(fetchTasks);
+  });
+  var $completed = $('<input type="checkbox">');
+  if (task.completed) {
+    $completed.attr('checked', 'checked');
+  }
+  $taskLink.text(task.description);
+  $taskLink.attr('href', '/tasks/' + task.id);
+  $taskLink.appendTo($task);
+  $task.prepend($completed);
+  $task.append($deleteLink);
+  $task.appendTo('#tasks');
+}
+
+
+
+
+
+
+
+
+
+
+
