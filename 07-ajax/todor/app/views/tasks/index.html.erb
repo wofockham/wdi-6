@@ -1,5 +1,9 @@
-<ul>
-  <% @tasks.each do |task| %>
-    <li><%= link_to task.description, task %></li>
-  <% end %>
+<ul id="tasks">
 </ul>
+
+<%= form_for Task.new do |f| %>
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+
+  <%= f.submit %>
+<% end %>

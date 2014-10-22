@@ -1,5 +1,7 @@
 $(document).ready(function () {
 
+  console.log('the document is ready');
+
   // Parallax Bill Murray
   var $hero = $('.hero');
   $(window).on('scroll', function () {
@@ -9,6 +11,10 @@ $(document).ready(function () {
       $hero.css('background-position-y', -bgPosition);
     }
   });
+
+  if (location.pathname !== '/about') {
+    return;
+  }
 
   // Bubbles
   $(window).on('mousemove', function (e) {
