@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   post '/tasks/:id/uncomplete' => 'tasks#uncomplete'
 
   get '/about' => 'pages#about'
+  get '/ajaxdemo' => 'pages#ajaxdemo'
 end
