@@ -11,4 +11,22 @@ $(document).ready(function () {
       $('#poster').attr('src', results.Poster);
     });
   });
+
+  $('#getDemo').on('click', function () {
+    $.get('/about').done(function (htmlResults) {
+      $p = $(htmlResults).find('p');
+      $('#getOutput').html( $p );
+    });
+  });
+
+  $('#getJSONDemo').on('click', function () {
+    $.getJSON('/tasks').done(function (tasks) {
+      console.log(tasks, tasks.length);
+    });
+  });
+
+  $('#loadDemo').on('click', function () {
+    $('#loadOutput').load('/time');
+  });
+
 });

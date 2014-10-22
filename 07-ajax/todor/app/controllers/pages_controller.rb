@@ -4,4 +4,8 @@ class PagesController < ApplicationController
 
   def ajaxdemo
   end
+
+  def time
+    render :text => (Time.now).to_s
+  end
 end

@@ -8,4 +8,6 @@ Rails.application.routes.draw do
 
   get '/about' => 'pages#about'
   get '/ajaxdemo' => 'pages#ajaxdemo'
+
+  get '/time' => 'pages#time'
 end
