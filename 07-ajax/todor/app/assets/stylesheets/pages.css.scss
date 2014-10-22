@@ -1,3 +1,19 @@
-// Place all the styles related to the Pages controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.about {
+  min-height: 1000em;
+}
+
+.hero {
+  background-image: url(http://www.fillmurray.com/960/1100);
+  width: 100%;
+  height: 40em;
+  border: 1px solid black;
+}
+
+.bubble {
+  position: absolute;
+  width: 1em;
+  height: 1em;
+  border: 1px solid blue;
+  background-color: rgba(0, 0, 200, 0.1);
+  border-radius: 100%;
+}
