@@ -30,6 +30,7 @@ var fetchTasks = function () {
 var addTask = function (task) {
   var $task = $('<li></li>');
   var $taskLink = $('<a></a>');
+
   var $deleteLink = $('<button>\u2718</button>');
   $deleteLink.on('click', function () {
     var deleteUrl = '/tasks/' + task.id;
@@ -39,10 +40,25 @@ var addTask = function (task) {
       dataType: 'json'
     }).done(fetchTasks);
   });
+
   var $completed = $('<input type="checkbox">');
   if (task.completed) {
     $completed.attr('checked', 'checked');
   }
+
+  $completed.on('change', function () {
+    var checked = $(this).is(':checked'); // Returns only true or false.
+    var url = '/tasks/' + task.id;
+
+    if (checked) {
+      url += '/complete';
+    } else {
+      url += '/uncomplete';
+    }
+
+    $.post(url);
+  });
+
   $taskLink.text(task.description);
   $taskLink.attr('href', '/tasks/' + task.id);
   $taskLink.appendTo($task);
@@ -50,14 +66,3 @@ var addTask = function (task) {
   $task.append($deleteLink);
   $task.appendTo('#tasks');
 }
-
-
-
-
-
-
-
-
-
-
-

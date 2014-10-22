@@ -38,6 +38,18 @@ class TasksController < ApplicationController
     end
   end
 
+  def complete
+    task = Task.find params[:id]
+    task.update :completed => true
+    render :json => { :status => 'ok' }
+  end
+
+  def uncomplete
+    task = Task.find params[:id]
+    task.update :completed => false
+    render :json => { :status => 'ok' }
+  end
+
   def destroy
     task = Task.find params[:id]
     task.destroy
