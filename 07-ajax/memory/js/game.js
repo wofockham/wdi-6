@@ -10,4 +10,8 @@ $(document).ready(function () {
 
     $('body').append( cardHTML({number: i}) );
   });
+
+  $('.card-container').on('click', function () {
+    $(this).toggleClass('flipped');
+  });
 });

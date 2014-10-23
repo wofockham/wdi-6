@@ -3,7 +3,7 @@
   perspective: 1000;
 }
   /* flip the pane when hovered */
-  .card-container:hover .flipper, .card-container.hover .flipper {
+  .card-container.flipped .flipper, .card-container.hover .flipper {
     transform: rotateY(180deg);
   }
 
@@ -44,6 +44,10 @@
 /* Customisations *************************************************************/
 body {
   background-color: green;
+}
+
+.card-container {
+  display: inline-block;
 }
 
 .front {
