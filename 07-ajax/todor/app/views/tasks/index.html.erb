@@ -1,9 +1,19 @@
 <ul id="tasks">
 </ul>
 
-<%= form_for Task.new do |f| %>
+<%= form_for Task.new, :remote => true do |f| %>
   <%= f.label :description %>
   <%= f.text_field :description %>
 
   <%= f.submit %>
 <% end %>
+
+<script type="template/handlebars" id="taskTemplate">
+  <li>
+    <input type="checkbox">
+    <a href="/tasks/{{ id }}">
+      {{ description }}
+    </a>
+    <button>&#10008;</button>
+  </li>
+</script>

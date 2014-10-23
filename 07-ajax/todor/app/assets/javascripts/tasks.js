@@ -1,19 +1,11 @@
 $(document).ready(function () {
   fetchTasks();
 
-  $('#new_task').on('submit', function (e) {
-    e.preventDefault();
-
-    // Submit the form via AJAX.
-    $.ajax('/tasks', {
-      type: 'POST',
-      data: {
-        'task[description]': $('#task_description').val()
-      }
-    }).done(fetchTasks);
-
-    $('#task_description').val('');
+  $('#new_task').on('ajax:success', function () {
+    fetchTasks();
+    $('#task_description').val(''); // Reset the input
   });
+
 });
 
 var fetchTasks = function () {
@@ -28,11 +20,13 @@ var fetchTasks = function () {
 };
 
 var addTask = function (task) {
-  var $task = $('<li></li>');
-  var $taskLink = $('<a></a>');
+  var template = $('#taskTemplate').html();
+  var taskHTML = Handlebars.compile(template);
 
-  var $deleteLink = $('<button>\u2718</button>');
-  $deleteLink.on('click', function () {
+  var $task = $( taskHTML(task) );
+  $task.appendTo('#tasks');
+
+  $task.find('button').on('click', function () {
     var deleteUrl = '/tasks/' + task.id;
     console.log('about to delete at', deleteUrl);
     $.ajax(deleteUrl, {
@@ -41,12 +35,7 @@ var addTask = function (task) {
     }).done(fetchTasks);
   });
 
-  var $completed = $('<input type="checkbox">');
-  if (task.completed) {
-    $completed.attr('checked', 'checked');
-  }
-
-  $completed.on('change', function () {
+  $task.find(':checkbox').on('change', function () {
     var checked = $(this).is(':checked'); // Returns only true or false.
     var url = '/tasks/' + task.id;
 
@@ -59,10 +48,14 @@ var addTask = function (task) {
     $.post(url);
   });
 
-  $taskLink.text(task.description);
-  $taskLink.attr('href', '/tasks/' + task.id);
-  $taskLink.appendTo($task);
-  $task.prepend($completed);
-  $task.append($deleteLink);
-  $task.appendTo('#tasks');
+  // var $completed = $('<input type="checkbox">');
+  // if (task.completed) {
+  //   $completed.attr('checked', 'checked');
+  // }
+
+  // $taskLink.text(task.description);
+  // $taskLink.attr('href', '/tasks/' + task.id);
+  // $taskLink.appendTo($task);
+  // $task.prepend($completed);
+  // $task.append($deleteLink);
 }

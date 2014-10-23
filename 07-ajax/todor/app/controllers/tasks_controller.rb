@@ -19,7 +19,10 @@ class TasksController < ApplicationController
   def create
     @task = Task.new task_params
     if @task.save
-      redirect_to @task
+      respond_to do |format|
+        format.html { redirect_to @task }
+        format.js {}
+      end
     else
       render :new
     end
