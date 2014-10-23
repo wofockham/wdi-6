@@ -53,9 +53,4 @@ var addTask = function (task) {
   //   $completed.attr('checked', 'checked');
   // }
 
-  // $taskLink.text(task.description);
-  // $taskLink.attr('href', '/tasks/' + task.id);
-  // $taskLink.appendTo($task);
-  // $task.prepend($completed);
-  // $task.append($deleteLink);
 }

@@ -10,7 +10,11 @@
 
 <script type="template/handlebars" id="taskTemplate">
   <li>
-    <input type="checkbox">
+    {{#if completed}}
+      <input type="checkbox" checked="checked">
+    {{else}}
+      <input type="checkbox">
+    {{/if}}
     <a href="/tasks/{{ id }}">
       {{ description }}
     </a>
