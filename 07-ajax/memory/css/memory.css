@@ -60,7 +60,11 @@ body {
 }
 
 .back {
-  border: 1px solid red;
+  border: 10px solid white;
+  border-radius: 5px;
+  background-color: white;
+  text-align: center;
+  font-size: 300%;
 }
 
 
