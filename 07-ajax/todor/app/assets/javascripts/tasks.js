@@ -19,16 +19,16 @@ var fetchTasks = function () {
   });
 };
 
+// Here we compile our task template just once so we can reuse it repeatedly.
+var taskHTML = Handlebars.compile($('#taskTemplate').html());
+
 var addTask = function (task) {
-  var template = $('#taskTemplate').html();
-  var taskHTML = Handlebars.compile(template);
 
   var $task = $( taskHTML(task) );
   $task.appendTo('#tasks');
 
   $task.find('button').on('click', function () {
     var deleteUrl = '/tasks/' + task.id;
-    console.log('about to delete at', deleteUrl);
     $.ajax(deleteUrl, {
       type: 'DELETE',
       dataType: 'json'
@@ -47,10 +47,4 @@ var addTask = function (task) {
 
     $.post(url);
   });
-
-  // var $completed = $('<input type="checkbox">');
-  // if (task.completed) {
-  //   $completed.attr('checked', 'checked');
-  // }
-
 }
