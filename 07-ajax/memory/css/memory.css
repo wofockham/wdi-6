@@ -1,13 +1,13 @@
 /* entire container, keeps perspective */
-.flip-container {
+.card-container {
   perspective: 1000;
 }
   /* flip the pane when hovered */
-  .flip-container:hover .flipper, .flip-container.hover .flipper {
+  .card-container:hover .flipper, .card-container.hover .flipper {
     transform: rotateY(180deg);
   }
 
-.flip-container, .front, .back {
+.card-container, .front, .back {
   width: 320px;
   height: 480px;
 }
@@ -40,3 +40,22 @@
 .back {
   transform: rotateY(180deg);
 }
+
+/* Customisations *************************************************************/
+.front {
+  border: 1px solid green;
+  background-image: url(http://4.bp.blogspot.com/_1AgA_BSRr40/TI_YtyvDrnI/AAAAAAAAAkA/MLMj23dgqtM/s1600/hoyleback.jpg);
+  background-size: cover;
+}
+
+.back {
+  border: 1px solid red;
+}
+
+
+
+
+
+
+
+
