@@ -9,7 +9,17 @@
   <script src="js/game.js"></script>
   <link rel="stylesheet" href="css/memory.css">
 </head>
+
 <body>
+  <div class="container">
+    <div class="controls">
+      <label for="cardCount">Card count:</label>
+      <input type="number" id="cardCount" value="8">
+      <button id="restart">Restart</button>
+      Attempts: <span id="attempts">0</span>
+    </div>
+    <div id="game"></div>
+  </div>
 
   <script type="template/handlebars" id="cardTemplate">
     <div class="card-container">
