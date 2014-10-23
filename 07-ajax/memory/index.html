@@ -3,22 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <title>Memory Game</title>
+  <script src="js/jquery.js"></script>
+  <script src="js/handlebars.js"></script>
+  <script src="js/memory.js"></script>
   <link rel="stylesheet" href="css/memory.css">
 </head>
 <body>
 
-  <div class="card-container">
-    <div class="flipper">
-      <div class="front">
-        front
-        <!-- front content -->
-      </div>
-      <div class="back">
-        back
-        <!-- back content -->
+  <script type="template/handlebars" id="cardTemplate">
+    <div class="card-container">
+      <div class="flipper">
+        <div class="front">
+        </div>
+        <div class="back">
+          <div class="number">
+            {{ number }}
+          </div>
+        </div>
       </div>
     </div>
-  </div>
+  </script>
 
 </body>
 </html>
