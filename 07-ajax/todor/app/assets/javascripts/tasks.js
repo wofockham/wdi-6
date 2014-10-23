@@ -5,7 +5,6 @@ $(document).ready(function () {
     fetchTasks();
     $('#task_description').val(''); // Reset the input
   });
-
 });
 
 var fetchTasks = function () {
