@@ -9,18 +9,11 @@ var bros = [
   }
 ];
 
-var badBrotherHTML = function (brother) {
-  var str = "";
-  str += "<li class='marx'>";
-  str += brother.name;
-  str += " plays ";
-  str += "<i>" + brother.instrument + "</i>";
-  str += "</li>";
-  return str;
-};
-
 $(document).ready(function () {
+  var source = $('#brotherTemplate').html();
+  var brotherHTML = Handlebars.compile(source);
+
   $.each(bros, function(index, brother) {
-    $('#bros').append( badBrotherHTML(brother) );
+    $('#bros').append( brotherHTML(brother) );
   });
 });

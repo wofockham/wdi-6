@@ -4,12 +4,20 @@
   <meta charset="UTF-8">
   <title>Document</title>
   <script src="js/jquery.js"></script>
+  <script src="js/handlebars.js"></script>
   <script src="js/demo.js"></script>
 </head>
 <body>
 
   <ul id="bros">
   </ul>
+
+
+  <script type="template/handlebars" id="brotherTemplate">
+    <li class="marx active">
+      <h1>{{name}}</h1> plays <em>{{instrument}}</em>
+    </li>
+  </script>
 
 </body>
 </html>
