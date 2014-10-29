@@ -1,0 +1,79 @@
+// Place all the styles related to the Pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+// Variables
+$coca-cola-red: #c00;
+$center: 0px auto;
+$margin: 10px;
+
+
+.container {
+  max-width: 960px;
+  margin: $center;
+}
+
+@mixin copy {
+  font-size: 12px;
+  margin: 0px 0px 10px 0px;
+  padding: 0;
+}
+
+@mixin indent($left) {
+  margin-left: $left;
+  padding-left: 0;
+}
+
+.post {
+  padding: 0px 30px;
+  border-bottom: 1px solid black;
+
+  .slug {
+    color: $coca-cola-red;
+    font: {
+      size: 30px;
+      style: italic;
+    }
+    text-align: center;
+  }
+
+  .content {
+    font-size: 14px;
+    margin-top: $margin;
+    margin-bottom: $margin / 2;
+    background-color: #ddd;
+    border-radius: 1em;
+    padding: 1em;
+
+    p {
+      @include copy;
+      @include indent(0px);
+    }
+  }
+}
+
+.notification {
+  border: 1px solid #999;
+  font-size: 50px;
+}
+
+.error {
+  @extend .notification;
+  color: #c00;
+}
+
+.success {
+  @extend .notification;
+  color: #0c0;
+}
+
+footer {
+  color: $coca-cola-red;
+}
+
+
+
+
+
+
+
