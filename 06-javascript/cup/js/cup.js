@@ -16,6 +16,22 @@ var cup = {
     cup.showSweepsRemaining();
   },
 
+  showSweepsBought: function () {
+    var $sweep2 = $('.sweep2 ul').empty();
+    _(this.sweep2).each(function (gambler, horse) {
+      var $li = $('<li/>');
+      $li.text([gambler, ':', horse].join(' '));
+      $sweep2.append($li);
+    });
+
+    var $sweep5 = $('.sweep5 ul').empty();
+    _(this.sweep5).each(function (gambler, horse) {
+      var $li = $('<li/>');
+      $li.text([gambler, ':', horse].join(' '));
+      $sweep5.append($li);
+    });
+  },
+
   showSweepsRemaining: function () {
     var stakes2 = this.field2.length;
     var stakes5 = this.field5.length;
@@ -30,6 +46,11 @@ var cup = {
       $li.text(horse);
       $('.field ul').append($li);
     });
+  },
+
+  highlightHorse: function (horse) {
+    $('.field ul .active').removeClass('active');
+    $('.field ul').find('li:contains(' + horse + ')').addClass('active');
   },
 
   placeBet: function () {
@@ -47,6 +68,8 @@ var cup = {
     } else {
       cup.buyStake5(gambler);
     }
+
+    cup.showSweepsBought();
   },
 
   buyStake2: function (gambler) {
@@ -58,10 +81,21 @@ var cup = {
 
     this.sweep2[horse] = gambler;
     $('#purchase').text([gambler, 'bought', horse].join(' '));
+    this.highlightHorse(horse);
     this.showSweepsRemaining();
   },
 
   buyStake5: function (gambler) {
+    var horse = this.field5.pop();
+    if (! horse) {
+      alert('Sold out');
+      return;
+    }
+
+    this.sweep5[horse] = gambler;
+    $('#purchase').text([gambler, 'bought', horse].join(' '));
+    this.highlightHorse(horse);
+    this.showSweepsRemaining();
   },
 };
 
