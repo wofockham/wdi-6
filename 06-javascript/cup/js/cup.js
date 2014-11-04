@@ -11,8 +11,8 @@ var cup = {
     cup.reload(); // Fetch a previously saved dataset, if available.
 
     // Shuffle the field for each of our sweeps.
-    this.field2 = _(this.field).shuffle();
-    this.field5 = _(this.field).shuffle();
+    this.field2 = this.field2 || _(this.field).shuffle();
+    this.field5 = this.field5 || _(this.field).shuffle();
 
     cup.showField();
     cup.showSweepsRemaining();
