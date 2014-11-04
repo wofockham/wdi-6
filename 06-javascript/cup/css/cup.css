@@ -19,6 +19,10 @@ body {
   padding: 0 1em;
 }
 
+.field li {
+  min-height: 21px;
+}
+
 .active {
   text-shadow: 0 0 10px #0ff;
   text-decoration: underline;
