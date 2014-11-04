@@ -1,13 +1,40 @@
 @import url(http://fonts.googleapis.com/css?family=Bitter:400,700);
 
+.corn {
+  clear: both;
+  text-align: right;
+}
+
 body {
   background-color: rgb(51,153,51);
   color: white;
   font-family: 'Bitter', sans-serif;
+  margin: 0;
+}
+
+@-webkit-keyframes race {
+   from {
+     background-position: 0;
+     -webkit-transform: rotateY(0);
+   }
+   to {
+     background-position: -1000%;
+     -webkit-transform: rotateY(360deg);
+   }
 }
 
 h1 {
+  -webkit-transform-origin: center center;
   text-align: center;
+  background-image: url(http://www.gambling-systems.com/horse-racing-systems.gif);
+  min-height: 126px;
+  line-height: 126px;
+  text-shadow: 0 0 10px #000;
+  -webkit-animation-name: race;
+  -webkit-animation-duration: 20s;
+  -webkit-animation-direction: alternate-reverse;
+  -webkit-animation-timing-function: ease-in;
+  -webkit-animation-iteration-count: infinite;
 }
 
 .container {
@@ -22,6 +49,7 @@ h1 {
 
 .sweep2, .sweep5 {
   padding: 0 1em;
+  border-top: 1px solid white;
 }
 
 .field li {

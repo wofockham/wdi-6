@@ -10,7 +10,7 @@ var cup = {
   init: function () {
     cup.reload(); // Fetch a previously saved dataset, if available.
 
-    // Create new copies of the field for each of our sweeps.
+    // Shuffle the field for each of our sweeps.
     this.field2 = _(this.field).shuffle();
     this.field5 = _(this.field).shuffle();
 
@@ -18,6 +18,8 @@ var cup = {
     cup.showSweepsRemaining();
     cup.showPrizes();
     cup.showSweepsBought();
+
+    $('#bet2, #bet5').on('click', cup.placeBet);
   },
 
   save: function () {
@@ -34,7 +36,7 @@ var cup = {
 
     var cupCopy = JSON.parse(cupString);
 
-    // Merge saved data into cup object.
+    // Merge saved data into our cup object.
     cup = _.extend(cup, cupCopy);
   },
 
@@ -126,7 +128,6 @@ var cup = {
     }
 
     cup.save(); // Persist the current data to localStorage for safety.
-
     cup.showSweepsBought();
   },
 
@@ -162,7 +163,5 @@ var cup = {
 
 $(document).ready(function () {
   cup.init();
-
-  $('#bet2, #bet5').on('click', cup.placeBet);
 });
 
