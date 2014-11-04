@@ -6,8 +6,11 @@ body {
   font-family: 'Bitter', sans-serif;
 }
 
+h1 {
+  text-align: center;
+}
+
 .container {
-  max-width: 960px;
   margin: auto;
 }
 
