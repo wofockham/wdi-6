@@ -140,7 +140,7 @@ var cup = {
     }
 
     this.sweep2[horse] = gambler;
-    $('#purchase').text([gambler, 'bought', horse].join(' '));
+    $('#purchase').text([gambler, 'backed', horse].join(' '));
     this.highlightHorse(horse);
     this.showSweepsRemaining();
   },
