@@ -15,11 +15,9 @@ body {
 @-webkit-keyframes race {
    from {
      background-position: 0;
-     -webkit-transform: rotateY(0);
    }
    to {
      background-position: -1000%;
-     -webkit-transform: rotateY(360deg);
    }
 }
 
