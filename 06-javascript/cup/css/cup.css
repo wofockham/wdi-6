@@ -12,6 +12,8 @@ h1 {
 
 .container {
   margin: auto;
+  width: 95%;
+  min-width 960px;
 }
 
 .field, .bet, .sweep2, .sweep5 {
