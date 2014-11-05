@@ -14,13 +14,71 @@ var Animal = Backbone.Model.extend({
   }
 });
 
+
 var Zoo = Backbone.Collection.extend({
   model: Animal
 });
 
-var animal1 = new Animal({type: 'giraffe', ecosystem: 'savannah'});
-var animal2 = new Animal({type: 'zebra', ecosystem: 'savannah'});
-var animal3 = new Animal({type: 'frog', ecosystem: 'pond'});
+
+var ZooView = Backbone.View.extend({
+  el: '#main',
+  initialize: function () {},
+  events: {
+    'click h2': 'greeting'
+  },
+  render: function () {
+    var view = this;
+    view.$el.empty();
+    view.$el.append('<h2>Our Menagerie</h2>');
+    view.collection.each(function (animal) {
+      var $p = $('<p/>');
+      $p.text(animal.get('type'));
+      var id = animal.get('id');
+      var $a = $('<a>click here</a>');
+      $a.attr('href', '#animals/' + id);
+      $p.append($a);
+      view.$el.append($p);
+    });
+  },
+  greeting: function () {
+    alert('you clicked the heading');
+  }
+});
+
+var animal1 = new Animal({id: 1, type: 'giraffe', ecosystem: 'savannah'});
+var animal2 = new Animal({id: 2, type: 'zebra', ecosystem: 'savannah'});
+var animal3 = new Animal({id: 3, type: 'frog', ecosystem: 'pond'});
 
 var weBoughtAZoo = new Zoo([animal1, animal2, animal3]);
 console.log(weBoughtAZoo.models);
+
+
+var AppRouter = Backbone.Router.extend({
+  routes: {
+    '': 'index',
+    'animals/:id': 'viewAnimal',
+  },
+  index: function () {
+    console.log('you reached the root page');
+    var zooView = new ZooView({collection: weBoughtAZoo});
+    zooView.render();
+  },
+  viewAnimal: function (id) {
+    $('#main').empty();
+    console.log('you are viewing animal', id);
+  }
+});
+
+$(document).ready(function () {
+  var appRouter = new AppRouter();
+  Backbone.history.start();
+});
+
+
+
+
+
+
+
+
+
