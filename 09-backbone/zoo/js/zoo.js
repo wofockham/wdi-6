@@ -30,14 +30,13 @@ var ZooView = Backbone.View.extend({
     var view = this;
     view.$el.empty();
     view.$el.append('<h2>Our Menagerie</h2>');
+
+    var animalIndexSource = $('#animalIndex').html();
+    var animalIndexHTML = _.template(animalIndexSource);
+
     view.collection.each(function (animal) {
-      var $p = $('<p/>');
-      $p.text(animal.get('type'));
-      var id = animal.get('id');
-      var $a = $('<a>click here</a>');
-      $a.attr('href', '#animals/' + id);
-      $p.append($a);
-      view.$el.append($p);
+      var animalHTML = animalIndexHTML(animal.toJSON());
+      view.$el.append(animalHTML);
     });
   },
   greeting: function () {
