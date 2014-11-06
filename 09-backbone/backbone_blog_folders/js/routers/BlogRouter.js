@@ -11,8 +11,8 @@ app.BlogRouter = Backbone.Router.extend({
     new app.Views.AppView({collection: app.posts});
   },
 
-  getPost: function (id) {
-    var post = app.posts.get(id);
+  getPost: function (slug) {
+    var post = app.posts.get(slug);
     if (!post) {
       app.router.navigate('', {trigger: true});
     } else {
