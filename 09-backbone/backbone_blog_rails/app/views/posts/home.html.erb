@@ -1,0 +1,22 @@
+<a href="#">Home</a>
+
+<h1>Backbone Blog</h1>
+
+  <div id="main"></div>
+
+  <script type="template/html" id="appView">
+    <h1>Recent Posts</h1>
+    <ul id="posts"></ul>
+  </script>
+
+  <script type="template/handlebars" id="postListView">
+    {{ title }}
+  </script>
+
+  <script type="template/handlebars" id="postView">
+    <div class="post">
+      <h2>{{ title }}</h2>
+      <h4>{{ slug }}</h4>
+      <p>{{ content }}</p>
+    </div>
+  </script>
