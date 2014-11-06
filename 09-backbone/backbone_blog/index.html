@@ -6,18 +6,31 @@
   <script src="js/jquery.js"></script>
   <script src="js/underscore.js"></script>
   <script src="js/backbone.js"></script>
+  <script src="js/handlebars.js"></script>
   <script src="js/blog.js"></script>
   <link rel="stylesheet" href="css/blog.css">
 </head>
 <body>
 
   <div class="container">
+    <h1><a href="#">Ebola Blog</a></h1>
     <div id="main"></div>
   </div>
 
   <script type="template/html" id="appView">
     <h1>Recent Posts</h1>
     <ul id="posts"></ul>
+  </script>
+
+  <script type="template/handlebars" id="postListView">
+    {{ title }}
+  </script>
+
+  <script type="template/handlebars" id="postView">
+    <div class="post">
+      <h2>{{ title }}</h2>
+      <p>{{ content }}</p>
+    </div>
   </script>
 
 </body>

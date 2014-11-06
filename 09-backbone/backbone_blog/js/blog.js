@@ -11,17 +11,21 @@ app.BlogRouter = Backbone.Router.extend({
   },
 
   index: function () {
-    var appView = new app.Views.AppView();
-    appView.render();
+    new app.Views.AppView({collection: app.posts});
   },
 
   getPost: function (id) {
-    console.log('getPost page for', id);
+    var post = app.posts.get(id);
+    if (!post) {
+      app.router.navigate('', {trigger: true});
+    } else {
+      var view = new app.Views.PostView({model: post});
+      view.render();
+    }
   },
 
   pageNotFound: function () {
-    // TODO: Redirect to the homepage
-    console.log('page not found');
+    app.router.navigate('', {trigger: true});
   }
 });
 
@@ -40,13 +44,47 @@ app.Collections.Posts = Backbone.Collection.extend({
 app.Views.AppView = Backbone.View.extend({
   el: '#main',
   initialize: function () {
+    this.render();
+  },
+  render: function () {
     var template = $('#appView').html();
     this.$el.html( template );
-  },
-  render: function () {}
+
+    this.collection.each(function (post) {
+      var view = new app.Views.PostListView({model: post});
+      view.render();
+    });
+  }
 });
 
+app.Views.PostListView = Backbone.View.extend({
+  tagName: 'li',
+  events: {
+    'click': 'viewPost'
+  },
+  initialize: function () {},
+  render: function () {
+    var template = $('#postListView').html();
+    var postListHTML = Handlebars.compile(template);
 
+    this.$el.html(postListHTML(this.model.toJSON()));
+    $('#posts').append(this.el);
+  },
+  viewPost: function () {
+    app.router.navigate('posts/' + this.model.get('id'), {trigger: true});
+  }
+});
+
+app.Views.PostView = Backbone.View.extend({
+  el: '#main',
+  initialize: function () {},
+  render: function () {
+    var template = $('#postView').html();
+    var postHTML = Handlebars.compile(template);
+
+    this.$el.html(postHTML(this.model.toJSON()));
+  }
+});
 
 $(document).ready(function () {
   app.posts = new app.Collections.Posts([
