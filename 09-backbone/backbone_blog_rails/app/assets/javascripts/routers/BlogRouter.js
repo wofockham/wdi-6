@@ -3,6 +3,7 @@ var app = app || {};
 app.BlogRouter = Backbone.Router.extend({
   routes: {
     '': 'index',
+    'posts/new': 'newPost',
     'posts/:id': 'getPost',
     '*anythingElse': 'pageNotFound'
   },
@@ -19,6 +20,11 @@ app.BlogRouter = Backbone.Router.extend({
       var view = new app.Views.PostView({model: post});
       view.render();
     }
+  },
+
+  newPost: function () {
+    var newPost = new app.Views.PostNew();
+    newPost.render();
   },
 
   pageNotFound: function () {
