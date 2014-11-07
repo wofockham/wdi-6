@@ -4,6 +4,26 @@
 
   <div id="main"></div>
 
+  <h2>New Post</h2>
+  <%= form_for Post.new do |f| %>
+    <p>
+      <%= f.label :title %><br>
+      <%= f.text_field :title %>
+    </p>
+
+    <p>
+      <%= f.label :slug %><br>
+      <%= f.text_field :slug %>
+    </p>
+
+    <p>
+      <%= f.label :content %><br>
+      <%= f.text_area :content %>
+    </p>
+
+    <%= f.submit %>
+  <% end %>
+
   <script type="template/html" id="appView">
     <h1>Recent Posts</h1>
     <ul id="posts"></ul>
@@ -20,3 +40,4 @@
       <p>{{ content }}</p>
     </div>
   </script>
+
