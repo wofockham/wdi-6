@@ -10,8 +10,4 @@ $(document).ready(function () {
     Backbone.history.start();
   });
 
-  // This should all be in a backbone view.
-  $('#new_post').on('submit', function (event) {
-  });
-
 });
