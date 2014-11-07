@@ -12,7 +12,7 @@ app.Views.PostListView = Backbone.View.extend({
     var postListHTML = Handlebars.compile(template);
 
     this.$el.html(postListHTML(this.model.toJSON()));
-    $('#posts').append(this.el);
+    $('#posts').prepend(this.el); // Reverse chronological order.
   },
   viewPost: function () {
     app.router.navigate('posts/' + this.model.get('id'), {trigger: true});

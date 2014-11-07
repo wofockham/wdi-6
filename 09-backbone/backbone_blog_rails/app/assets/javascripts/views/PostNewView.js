@@ -24,7 +24,5 @@ app.Views.PostNew = Backbone.View.extend({
       app.posts.add(newPost);
       app.router.navigate('', {trigger: true});
     });
-
-    this.$el.find('form').get(0).reset();
   }
 });
