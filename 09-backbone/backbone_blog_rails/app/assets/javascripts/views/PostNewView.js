@@ -21,7 +21,9 @@ app.Views.PostNew = Backbone.View.extend({
     newPost.set('content', $('#post_content').val());
 
     newPost.save().done(function () {
-      app.router.navigate('', {trigger: true});
+      app.posts.fetch().done(function () {
+        app.router.navigate('', {trigger: true});
+      });
     });
 
     this.$el.find('form').get(0).reset();
