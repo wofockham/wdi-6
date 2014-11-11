@@ -1,0 +1,33 @@
+namespace :morning do
+
+  task :turn_off_alarm do
+    puts "Alarm disabled"
+  end
+
+  task :groom_self do
+    puts "Brush teeth"
+    puts "Comb beard"
+    puts "Style underarms"
+    puts "Hatch a grogan"
+  end
+
+  task :make_coffee do
+    cups = ENV['COFFEE_CUPS'] || 2
+    puts "Made #{cups} cups of coffee. God give me strength."
+  end
+
+  task :walk_horrible_dog do
+    puts "Horrible little dog walked"
+  end
+
+  task :get_ready => [:turn_off_alarm, :make_coffee, :groom_self, :walk_horrible_dog] do
+    puts "Ready for the day"
+  end
+
+end
+
+# directory "tmp"
+
+# file "tmp/hello" => "tmp" do
+#   sh "echo 'Hello' >> tmp/hello"
+# end
