@@ -1,9 +1,12 @@
-namespace :morning do
+task :default => 'morning:get_ready'
 
+namespace :morning do
+  desc "Turn off the goddamn alarm"
   task :turn_off_alarm do
     puts "Alarm disabled"
   end
 
+  desc "Make myself a fancy man"
   task :groom_self do
     puts "Brush teeth"
     puts "Comb beard"
@@ -11,6 +14,7 @@ namespace :morning do
     puts "Hatch a grogan"
   end
 
+  desc "CAFFIENE GET IN MAH BLOODSTREAM"
   task :make_coffee do
     cups = ENV['COFFEE_CUPS'] || 2
     puts "Made #{cups} cups of coffee. God give me strength."
@@ -20,10 +24,24 @@ namespace :morning do
     puts "Horrible little dog walked"
   end
 
+  desc "Get all nice and ready for the day"
   task :get_ready => [:turn_off_alarm, :make_coffee, :groom_self, :walk_horrible_dog] do
     puts "Ready for the day"
   end
 
+end
+
+namespace :morning do
+  task :groom_self do
+    puts "FAUX HAWK"
+  end
+end
+
+namespace :afternoon do
+  task :make_coffee do
+    Rake::Task['morning:make_coffee'].invoke
+    puts "Ready for the afternoon"
+  end
 end
 
 # directory "tmp"
