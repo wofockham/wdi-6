@@ -1,5 +1,32 @@
 $(document).ready(function () {
+  $.getJSON('/beverages.json').done(function (beverageData) {
+    new Morris.Line({
+      element: 'beverage-week-graph',
+      data: beverageData,
+      xkey: 'day',
+      ykeys: ['coffee', 'water', 'beer', 'whiskey'],
+      labels: ['coffee', 'H2O', 'beer', 'whiskey'],
+      lineColors: ['#82632A', '#3F3FC4', '#F5C816', '#E0CB90'],
+      parseTime: false,
+      resize: true,
+      smooth: false
+    });
+  }).done(function (beverageData) {
+    var data = beverageData[0];
+    new Morris.Donut({
+      element: 'beverage-day-graph',
+      data: [
+        {label: 'Coffee', value: data.coffee},
+        {label: 'H2O', value: data.water},
+        {label: 'Beer', value: data.beer},
+        {label: 'Whiskey', value: data.whiskey}
+      ],
+      colors: ['#82632A', '#3F3FC4', '#F5C816', '#E0CB90']
+    });
+  });
+});
 
+$(document).ready(function () {
   new Morris.Line({
     // ID of the element in which to draw the chart.
     element: 'myfirstchart',
@@ -20,5 +47,6 @@ $(document).ready(function () {
     // chart.
     labels: ['Value']
   });
-
 });
+
+
