@@ -8,3 +8,10 @@ Feature: Calculator
     And I have the number 7
     When I add them together
     Then I should see 12 on the terminal
+
+  Scenario: Subtract two numbers
+    Given I have a calculator
+    And I have the number 9
+    And I have the number 4
+    When I subtract them
+    Then I should see 5 on the terminal
