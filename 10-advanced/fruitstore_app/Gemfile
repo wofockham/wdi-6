@@ -28,6 +28,8 @@ gem 'spring',        group: :development
 
 group :development, :test do
   gem 'rspec-rails'
+  gem 'shoulda-matchers', :require => false
+  gem 'simplecov', :require => false
 end
 
 # Use ActiveModel has_secure_password

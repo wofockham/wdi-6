@@ -1,14 +1,12 @@
 # == Schema Information
 #
-# Table name: fruits
+# Table name: shelves
 #
 #  id         :integer          not null, primary key
 #  created_at :datetime
 #  updated_at :datetime
-#  name       :string(255)
-#  type       :string(255)
 #
 
-class Fruit < ActiveRecord::Base
-  belongs_to :shelf
+class Shelf < ActiveRecord::Base
+  has_many :fruits
 end
