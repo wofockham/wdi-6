@@ -81,15 +81,3 @@ RSpec.describe FruitsController, :type => :controller do
     end
   end
 end
-
-
-
-
-
-
-
-
-
-
-
-
