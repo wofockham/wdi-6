@@ -14,3 +14,4 @@ FactoryGirl.define do
     f.sequence(:post) { Faker::Lorem.sentence }
   end
 end
+
