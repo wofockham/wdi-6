@@ -1,3 +1,7 @@
+body {
+  font-family: Arial;
+}
+
 .container {
   max-width: 960px;
   margin: auto;
