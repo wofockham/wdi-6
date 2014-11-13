@@ -15,3 +15,10 @@ Feature: Calculator
     And I have the number 4
     When I subtract them
     Then I should see 5 on the terminal
+
+  Scenario: Multiply two numbers
+    Given I have a calculator
+    And I have the number 9
+    And I have the number 4
+    When I multiply them
+    Then I should see 36 on the terminal

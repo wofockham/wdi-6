@@ -1,13 +1,21 @@
 class Calculator
   def initialize
-    @input = []
+    @numbers = []
   end
 
   def <<(number)
-    @input.push(number.to_i)
+    @numbers.push(number.to_i)
   end
 
   def add
-    @input.inject(:+)
+    @numbers.inject(:+)
+  end
+
+  def subtract
+    @numbers.inject(:-)
+  end
+
+  def multiply
+    @numbers.inject(:*)
   end
 end
