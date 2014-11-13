@@ -57,25 +57,26 @@ RSpec.describe FruitsController, :type => :controller do
       end
 
       it 'should redirect to the show action' do
-        # Your code here
+        expect(response.status).to eq(302)
+        expect(response).to redirect_to(fruit_path(assigns(:fruit)))
       end
 
       it 'should increase the number of Fruits' do
-        # Your code here
+        expect(Fruit.count).to eq(1)
       end
     end
 
     describe 'a fruit without a name' do
       before do
-        post :create, {}
+        post :create, { :fruit => { :name => '' } }
       end
 
       it 'should render the new template' do
-        # Your code here
+        expect(response).to render_template(:new)
       end
 
       it 'should not increase the number of Fruits' do
-        # Your code here
+        expect(Fruit.count).to eq(0)
       end
     end
   end
