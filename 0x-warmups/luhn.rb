@@ -1,14 +1,15 @@
 class Luhn
+  attr_reader :number
+
   def initialize(n)
     @number = n
   end
 
   # You are not expected to understand this.
-  # Guaranteed bug free - please don't test.
-  def add_check
-    check = checksum
-    delta = check.round(-1) - check
-    @number + delta
+  def self.create(n)
+    n = Luhn.new(n * 10)
+    delta = 10 - (n.checksum % 10)
+    n.number + delta
   end
 
   def checksum
