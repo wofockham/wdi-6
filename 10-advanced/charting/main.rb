@@ -14,6 +14,10 @@ get '/flot' do
   erb :flot
 end
 
+get '/d3' do
+  erb :d3
+end
+
 get '/beverages.json' do
   content_type :json
   [
