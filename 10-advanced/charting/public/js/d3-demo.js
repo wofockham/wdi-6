@@ -2,7 +2,7 @@ $(document).ready(function () {
 
   var nums = [80, 53, 125, 200, 28, 97, 100, 100, 100];
 
-  var svg = d3.select('body').append('svg').attr('width', 500).attr('height', 200);
+  var svg = d3.select('.container').append('svg').attr('width', 500).attr('height', 200);
 
   var bars = svg.selectAll('rect').data(nums);
 
