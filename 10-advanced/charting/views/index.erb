@@ -3,3 +3,16 @@
   <li><a href="/flot">Flot Chart</a></li>
   <li><a href="/d3">D3 Demo</a></li>
 </ul>
+
+<script>
+
+// jQuery plugin example.
+
+$.fn.greenify = function () {
+  this.css('color', 'green');
+  return this; // To allow chaining.
+};
+
+$('a').greenify();
+
+</script>
