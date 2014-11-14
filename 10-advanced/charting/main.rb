@@ -10,6 +10,10 @@ get '/morris' do
   erb :morris
 end
 
+get '/flot' do
+  erb :flot
+end
+
 get '/beverages.json' do
   content_type :json
   [
