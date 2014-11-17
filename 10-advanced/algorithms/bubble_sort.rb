@@ -1,7 +1,8 @@
 class Array
 
   def bubble_sort(target=nil)
-    sorted = target || Array.new(self) # Create a new copy of the array.
+    sorted = target || Array.new(self) # target || Array.new(self) # Create a new copy of the array.
+
     max = sorted.length - 1 # Upper bound: this is reduced with each iteration.
 
     until max <= 0 # Loop until we've compared everything.
@@ -19,6 +20,7 @@ class Array
   end
 
   def bubble_sort!
+    # You are not expected to understand this.
     bubble_sort(self)
   end
 end
