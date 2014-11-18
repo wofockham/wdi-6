@@ -1,0 +1,23 @@
+body {
+  background-color: pink;
+}
+
+.container {
+  max-width: 960px;
+  margin: auto;
+}
+
+#bill {
+  display: none;
+}
+
+.ball {
+  display: inline-block;
+  background-color: red;
+  width: 3em;
+  height: 3em;
+  border-radius: 100%;
+  color: white;
+  text-align: center;
+  line-height: 3em;
+}
