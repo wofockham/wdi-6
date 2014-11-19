@@ -46,6 +46,15 @@ class SinglyLinkedList
   def reverse!
   end
 
+  def get(index) # Finds the indexth node.
+  end
+
+  def [](index)
+  end
+
+  def []=(index) # Tricky.
+  end
+
   def length
     count = 0
     next_node = @head
