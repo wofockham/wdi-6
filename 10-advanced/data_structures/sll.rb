@@ -1,8 +1,18 @@
 class SinglyLinkedList
+  include Enumerable
+
   attr_accessor :head
 
   def initialize(value=nil)
     @head = Node.new(value) if value
+  end
+
+  def each
+    next_node = @head
+    while next_node
+      yield next_node.value if block_given?
+      next_node = next_node.next
+    end
   end
 
   def last
@@ -29,21 +39,60 @@ class SinglyLinkedList
   end
 
   def insertAfter(value, new_value)
+    predecessor = find(value)
+    if predecessor
+      new_node = Node.new new_value
+      new_node.next = predecessor.next
+      predecessor.next = new_node
+    else
+      nil
+    end
   end
 
   def prepend(value)
+    new_node = Node.new value
+    new_node.next = @head if @head
+    @head = new_node
   end
 
   def remove # pop(): remove from the end and return the value
+    prev = nil
+    current = @head
+
+    while current && current.next
+      prev = current
+      current = current.next
+    end
+
+    if prev
+      prev.next = nil
+    else
+      @head = nil
+    end
+
+    current
   end
 
   def find(value) # returns the node with value=value or nil if not found
+    next_node = @head
+    while next_node && next_node.value != value
+      next_node = next_node.next
+    end
+    next_node
   end
 
   def reverse # returns a new SLL with nodes in the reverse order
+    reversed = SinglyLinkedList.new
+    current_node = @head
+    while current_node
+      reversed.prepend current_node.value
+      current_node = current_node.next
+    end
+    reversed
   end
 
   def reverse!
+    @head = reverse.head # Cheers Nick.
   end
 
   def get(index) # Finds the indexth node.
