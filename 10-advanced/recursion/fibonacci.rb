@@ -12,11 +12,23 @@ end
 
 def fib(n)
   if (n <=  2)
-    1
+    1 # Base case
   else
     fib(n - 1) + fib(n - 2)
   end
 end
+
+# require 'ruby-prof'
+# RubyProf.start
+
+# 30.times { |i| fib_iterative(i) }
+# 30.times { |i| fib(i) }
+
+# result = RubyProf.stop
+
+# # Print a flat profile to text
+# printer = RubyProf::FlatPrinter.new(result)
+# printer.print(STDOUT)
 
 require 'pry'
 binding.pry
