@@ -10,10 +10,12 @@ def fib_iterative(n)
   b
 end
 
-puts fib_iterative(6)
-
 def fib(n)
-  # Your code here.
+  if (n <=  2)
+    1
+  else
+    fib(n - 1) + fib(n - 2)
+  end
 end
 
 require 'pry'
